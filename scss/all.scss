@@ -1,0 +1,9 @@
+$newBlue: #3282f7;
+$newGreen: #68D9A4;
+$newRed: #ED6454;
+.form-control{
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
