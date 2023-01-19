@@ -7,3 +7,16 @@ $newRed: #ED6454;
         box-shadow: none;
     }
 }
+#secondSearch{
+    display: flex;
+    flex-flow: row wrap;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        width: 75%;
+        padding-top: 1rem;
+    }
+}

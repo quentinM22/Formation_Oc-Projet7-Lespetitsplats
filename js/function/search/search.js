@@ -1,4 +1,4 @@
-import { displayRecette, getErrorFind } from "../views/display.js";
+import { displayList, displayRecette, getErrorFind } from "../views/display.js";
 import { findFirstSearch } from "./firstSearch.js";
 
 const searchWord = document.querySelector("#searchForm")
@@ -9,6 +9,7 @@ const searchWord = document.querySelector("#searchForm")
 export function search(tab) {
     if (searchWord.value.length < 3) {
         displayRecette(tab)
+        displayList(tab)
     } else {
         const findElementArr = tab.filter((e) =>
             findFirstSearch(e, searchWord)
@@ -18,8 +19,9 @@ export function search(tab) {
             getErrorFind(msg)
         } else {
             displayRecette(findElementArr)
-            
+            displayList(findElementArr)
         }
     }
+    
 }
 

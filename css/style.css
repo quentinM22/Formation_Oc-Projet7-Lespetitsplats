@@ -10775,4 +10775,19 @@ textarea.form-control-lg {
   box-shadow: none;
 }
 
+#secondSearch {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header img {
+  width: 75%;
+  padding-top: 1rem;
+}
+
 /*# sourceMappingURL=style.css.map */
