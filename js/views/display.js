@@ -1,6 +1,6 @@
-import { ElementList } from "../../class/ElementList.js";
-import {Recette} from "../../class/Recette.js";
-import { tabFilterElement } from "../other/tabListt.js";
+import { ElementList } from "../model/ElementList.js";
+import { Recette } from "../model/Recette.js";
+import { tabFilterElement } from "../controllers/other/tabListt.js";
 
 const section = document.querySelector("#content-card")
 
