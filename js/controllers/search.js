@@ -1,7 +1,9 @@
 import { displayList, displayRecette, getErrorFind } from "../views/display.js";
 import { findFirstSearch } from "./firstSearch.js";
+import { tabListSearch } from "./tabListSearch.js";
 
 const searchWord = document.querySelector("#searchForm")
+
 /**
  * Fonction de recherche Principal
  * @param {data.array} tab 
@@ -27,6 +29,7 @@ export function search(tab) {
 
             displayRecette(findElementArr)
             displayList(findElementArr)
+            tabListSearch(findElementArr)
 
             
         }

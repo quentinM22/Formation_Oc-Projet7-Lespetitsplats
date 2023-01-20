@@ -45,15 +45,21 @@ function displayList(tab){
  */
 export function view(arr, el) {
     el.innerHTML = ""
+    if (arr.length > 0) {
 
-    const ul = document.createElement("ul");
-
+        const ul = document.createElement("ul");
     arr.forEach(e =>{
         const li = document.createElement("li");
         li.innerText = e
         ul.appendChild(li)
     }) 
     el.appendChild(ul)
-}
 
+    } else {
+
+        el.innerHTML = "Aucun element trouvé"
+        
+    }
+    
+}
 export {displayRecette, getErrorFind, displayList}

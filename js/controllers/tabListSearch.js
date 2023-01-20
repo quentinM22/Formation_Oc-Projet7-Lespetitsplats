@@ -16,7 +16,7 @@ export function tabListSearch(tab) {
     const inputIngSearch = ing.inputElement('#inputIngSearch')
     const inputAppSearch = app.inputElement('#inputAppSearch')
     const inputUstSearch = ust.inputElement('#inputUstSearch')
-    
+
     tabList(inputIngSearch, arr[0], ingContainer)
     tabList(inputAppSearch, arr[1], appContainer)
     tabList(inputUstSearch, arr[2], ustContainer)
@@ -26,7 +26,7 @@ export function tabListSearch(tab) {
 function tabList(input, tab, container) {
     input.addEventListener('keyup', () => {
         const tabListSearchE = tab.filter(e => e.toLowerCase().includes(input.value.toLowerCase()))
-        view(tabListSearchE, container)
+            view(tabListSearchE, container)
     })
 
 }
