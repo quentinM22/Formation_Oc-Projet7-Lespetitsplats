@@ -1,6 +1,6 @@
 import { ElementList } from "../model/ElementList.js";
 import { Recette } from "../model/Recette.js";
-import { tabFilterElement } from "../controllers/other/tabListt.js";
+import { tabFilterElement } from "../controllers/tabFiltListE.js";
 
 const section = document.querySelector("#content-card")
 
@@ -43,7 +43,7 @@ function displayList(tab){
  * @param {array} arr 
  * @param {domElement} el 
  */
-function view(arr, el) {
+export function view(arr, el) {
     el.innerHTML = ""
 
     const ul = document.createElement("ul");

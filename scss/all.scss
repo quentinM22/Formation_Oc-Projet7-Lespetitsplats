@@ -20,3 +20,12 @@ header{
         padding-top: 1rem;
     }
 }
+ul{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    li{
+        width: 33.33%;
+        list-style: none;
+    }
+}

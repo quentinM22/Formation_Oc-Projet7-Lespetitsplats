@@ -5,4 +5,7 @@ export class ElementList{
     targetElement(){
         return this.domList.querySelector('.list-container')
     }
+    inputElement(input){
+        return this.domList.querySelector(input)
+    }
 }
