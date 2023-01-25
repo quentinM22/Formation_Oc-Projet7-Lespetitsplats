@@ -10790,14 +10790,55 @@ header img {
   padding-top: 1rem;
 }
 
-ul {
+#ingSearch .list-container {
+  background-color: #3282f7;
+}
+#ingSearch .list-container ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
-ul li {
+#ingSearch .list-container ul li {
   width: 33.33%;
   list-style: none;
+  cursor: pointer;
+}
+#ingSearch .list-container ul li:hover {
+  color: beige;
+}
+
+#appSearch .list-container {
+  background-color: #68D9A4;
+}
+#appSearch .list-container ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#appSearch .list-container ul li {
+  width: 33.33%;
+  list-style: none;
+  cursor: pointer;
+}
+#appSearch .list-container ul li:hover {
+  color: beige;
+}
+
+#ustSearch .list-container {
+  background-color: #ED6454;
+}
+#ustSearch .list-container ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#ustSearch .list-container ul li {
+  width: 33.33%;
+  list-style: none;
+  cursor: pointer;
+}
+#ustSearch .list-container ul li:hover {
+  color: beige;
 }
 
 /*# sourceMappingURL=style.css.map */

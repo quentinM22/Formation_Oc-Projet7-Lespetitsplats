@@ -1,6 +1,9 @@
 import { ElementList } from "../model/ElementList.js";
 import { Recette } from "../model/Recette.js";
 import { tabFilterElement } from "../controllers/tabFiltListE.js";
+import { targetTag } from "../controllers/tagList.js";
+
+
 
 const section = document.querySelector("#content-card")
 
@@ -25,7 +28,10 @@ function getErrorFind(message){
     notFind.textContent = message
     section.appendChild(notFind)
 }
-
+/**
+ * 
+ * @param {array} tab 
+ */
 function displayList(tab){
     const ingContainer = new ElementList(document.querySelector("#ingSearch")).targetElement()
     const appContainer = new ElementList(document.querySelector("#appSearch")).targetElement()
@@ -33,33 +39,50 @@ function displayList(tab){
     
     const array = tabFilterElement(tab)
 
-    view(array[0], ingContainer)
-    view(array[1], appContainer)
-    view(array[2], ustContainer)
-
+    viewList(array[0], ingContainer)
+    viewList(array[1], appContainer)
+    viewList(array[2], ustContainer)
+    targetTag(tab)
 }
 /**
  * Fonction Affichages listes 
- * @param {array} arr 
+ * @param {array.elements} arr 
  * @param {domElement} el 
  */
-export function view(arr, el) {
+function viewList(arr, el) {
     el.innerHTML = ""
     if (arr.length > 0) {
-
         const ul = document.createElement("ul");
+        ul.className = 'list-items'
     arr.forEach(e =>{
         const li = document.createElement("li");
         li.innerText = e
+        li.id = e.replaceAll(' ', "_")
         ul.appendChild(li)
     }) 
     el.appendChild(ul)
-
     } else {
-
         el.innerHTML = "Aucun element trouvé"
-        
     }
     
 }
-export {displayRecette, getErrorFind, displayList}
+/**
+ * Affichage des tags
+ * @param {array.tags} tab 
+ */
+function tagElement(tab) {
+    const tagContainer = document.querySelector('#tag-container')
+    tagContainer.innerHTML = ""
+    const ul = document.createElement("ul");
+    tab.forEach((e)=>{
+        const li = document.createElement("li");
+        const i = document.createElement("i")
+        li.innerText = e
+        ul.appendChild(li)
+        i.className = 'fa-regular fa-circle-xmark'
+        li.appendChild(i)
+    });
+    tagContainer.appendChild(ul)
+}
+
+export {displayRecette, getErrorFind, displayList, viewList, tagElement}

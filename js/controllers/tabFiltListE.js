@@ -1,7 +1,7 @@
 /**
  * Fonction tri des element
  * @param {array} tab 
- * @returns {array} 
+ * @returns {array.array*3} 
  */
 export function tabFilterElement(tab) {
     let ingredientsArr = []

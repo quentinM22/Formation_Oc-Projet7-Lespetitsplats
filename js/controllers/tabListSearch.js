@@ -1,7 +1,10 @@
 import { ElementList } from "../model/ElementList.js";
-import { view } from "../views/display.js";
+import { viewList } from "../views/display.js";
 import { tabFilterElement } from "./tabFiltListE.js";
-
+/**
+ * 
+ * @param {array} tab 
+ */
 export function tabListSearch(tab) {
     const arr = tabFilterElement(tab)
 
@@ -22,11 +25,17 @@ export function tabListSearch(tab) {
     tabList(inputUstSearch, arr[2], ustContainer)
 }
 
-
+/**
+ * 
+ * @param {domInput} input 
+ * @param {array} tab 
+ * @param {domContainer} container 
+ */
 function tabList(input, tab, container) {
     input.addEventListener('keyup', () => {
         const tabListSearchE = tab.filter(e => e.toLowerCase().includes(input.value.toLowerCase()))
-            view(tabListSearchE, container)
+        console.log(tab);
+            viewList(tabListSearchE, container)      
     })
 
 }
