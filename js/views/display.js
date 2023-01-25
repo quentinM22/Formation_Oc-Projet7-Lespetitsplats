@@ -11,7 +11,7 @@ const section = document.querySelector("#content-card")
  * Envoi tableau dans dom 
  * @param {array}  
  */
-function displayRecette(tab){ 
+function displayRecette(tab) {
     section.innerHTML = ""
     tab.forEach(e => {
         const createCard = new Recette(e).viewCard()
@@ -22,7 +22,7 @@ function displayRecette(tab){
  * Envoi msg dans dom 
  * @param {string} message 
  */
-function getErrorFind(message){
+function getErrorFind(message) {
     section.innerHTML = ""
     const notFind = document.createElement('h2')
     notFind.textContent = message
@@ -32,11 +32,11 @@ function getErrorFind(message){
  * 
  * @param {array} tab 
  */
-function displayList(tab){
+function displayList(tab) {
     const ingContainer = new ElementList(document.querySelector("#ingSearch")).targetElement()
     const appContainer = new ElementList(document.querySelector("#appSearch")).targetElement()
     const ustContainer = new ElementList(document.querySelector("#ustSearch")).targetElement()
-    
+
     const array = tabFilterElement(tab)
 
     viewList(array[0], ingContainer)
@@ -54,17 +54,17 @@ function viewList(arr, el) {
     if (arr.length > 0) {
         const ul = document.createElement("ul");
         ul.className = 'list-items'
-    arr.forEach(e =>{
-        const li = document.createElement("li");
-        li.innerText = e
-        li.id = e.replaceAll(' ', "_")
-        ul.appendChild(li)
-    }) 
-    el.appendChild(ul)
+        arr.forEach(e => {
+            const li = document.createElement("li");
+            li.innerText = e
+            li.id = e.replaceAll(' ', "_")
+            ul.appendChild(li)
+        })
+        el.appendChild(ul)
     } else {
         el.innerHTML = "Aucun element trouvé"
     }
-    
+
 }
 /**
  * Affichage des tags
@@ -74,7 +74,7 @@ function tagElement(tab) {
     const tagContainer = document.querySelector('#tag-container')
     tagContainer.innerHTML = ""
     const ul = document.createElement("ul");
-    tab.forEach((e)=>{
+    tab.forEach((e) => {
         const li = document.createElement("li");
         const i = document.createElement("i")
         li.innerText = e
@@ -85,4 +85,4 @@ function tagElement(tab) {
     tagContainer.appendChild(ul)
 }
 
-export {displayRecette, getErrorFind, displayList, viewList, tagElement}
+export { displayRecette, getErrorFind, displayList, viewList, tagElement }

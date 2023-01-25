@@ -35,7 +35,7 @@ function tabList(input, tab, container) {
     input.addEventListener('keyup', () => {
         const tabListSearchE = tab.filter(e => e.toLowerCase().includes(input.value.toLowerCase()))
         console.log(tab);
-            viewList(tabListSearchE, container)      
+        viewList(tabListSearchE, container)
     })
 
 }
