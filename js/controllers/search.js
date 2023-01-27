@@ -23,7 +23,9 @@ export function search(tab) {
         } else {
             displayRecette(findElementArr)
             displayList(findElementArr)
-            tabListSearch(findElementArr)  
+            tabListSearch(findElementArr) 
+            // const tagContainer = document.querySelector('#tag-container')
+            // tagContainer.innerHTML = ""
         }
 
     }

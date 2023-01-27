@@ -18,5 +18,3 @@ displayRecette(recipes)
 displayList(recipes)
 tabListSearch(recipes)
 targetTag(recipes)
-
-
