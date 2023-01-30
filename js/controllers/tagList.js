@@ -7,7 +7,7 @@ let tagTable = []
  * Ajouter et supprimer tag
  * @param {array.recipes} tab 
  */
-export function targetTag(tab) {
+export function crudTag(tab) {
     //addTag
     const listcontainer = document.querySelectorAll(".list-items")
     listcontainer.forEach(e => {

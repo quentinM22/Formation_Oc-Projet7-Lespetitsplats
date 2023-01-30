@@ -1,12 +1,14 @@
 import { ElementList } from "../model/ElementList.js";
 import { viewList } from "../views/display.js";
 import { tabFilterElement } from "./tabFiltListE.js";
+import { crudTag } from "./tagList.js";
 /**
  * 
  * @param {array} tab 
  */
-export function tabListSearch(tab) {
-    const arr = tabFilterElement(tab)
+export function tabListSearch(recipes) {
+    console.log(recipes);
+    const arr = tabFilterElement(recipes)
 
     const ing = new ElementList(document.querySelector("#ingSearch"))
     const app = new ElementList(document.querySelector("#appSearch"))
@@ -20,22 +22,24 @@ export function tabListSearch(tab) {
     const inputAppSearch = app.inputElement('#inputAppSearch')
     const inputUstSearch = ust.inputElement('#inputUstSearch')
 
-    tabList(inputIngSearch, arr[0], ingContainer)
-    tabList(inputAppSearch, arr[1], appContainer)
-    tabList(inputUstSearch, arr[2], ustContainer)
+    tabList(inputIngSearch, arr[0], ingContainer, recipes)
+    tabList(inputAppSearch, arr[1], appContainer, recipes)
+    tabList(inputUstSearch, arr[2], ustContainer, recipes)
 }
 
 /**
  * 
- * @param {domInput} input 
- * @param {array} tab 
- * @param {domContainer} container 
+ * @param {inputDom} input 
+ * @param {array.elements} elements 
+ * @param {containerDom} container 
+ * @param {array.recipes} recipes 
  */
-function tabList(input, tab, container) {
+function tabList(input, elements, container, recipes) {
     input.addEventListener('keyup', () => {
-        const tabListSearchE = tab.filter(e => e.toLowerCase().includes(input.value.toLowerCase()))
-        console.log(tab);
-        viewList(tabListSearchE, container)
+        const newElementsArr = elements.filter(e => e.toLowerCase().includes(input.value.toLowerCase()))
+        viewList(newElementsArr, container)
+        // 
+        crudTag(recipes)
     })
 
 }

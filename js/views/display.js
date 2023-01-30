@@ -1,7 +1,7 @@
 import { ElementList } from "../model/ElementList.js";
 import { Recette } from "../model/Recette.js";
 import { tabFilterElement } from "../controllers/tabFiltListE.js";
-import { targetTag } from "../controllers/tagList.js";
+import { crudTag } from "../controllers/tagList.js";
 
 
 
@@ -42,7 +42,7 @@ function displayList(tab) {
     viewList(array[0], ingContainer)
     viewList(array[1], appContainer)
     viewList(array[2], ustContainer)
-    targetTag(tab)
+    crudTag(tab)
 }
 /**
  * Fonction Affichages listes 

@@ -5,10 +5,10 @@
  * @returns {array.element.includes}
  */
 export function findFirstSearch(e, input) {
-    let elementFor
+    let elementFor = []
     e.ingredients.forEach(element => {
-        elementFor = element.ingredient.toLowerCase()
-    });
+        elementFor.push(element.ingredient.toLowerCase())
+    })
     if (
         e.name.toLowerCase().includes(input.value.toLowerCase())
         ||
