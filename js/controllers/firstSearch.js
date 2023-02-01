@@ -1,21 +1,19 @@
 /**
  * Création 1er Filtre pour Search
- * @param {array.element} e 
- * @param {DOMInput} input 
+ * @param {array.element} recipe
+ * @param {DOMInput} input
  * @returns {array.element.includes}
  */
-export function findFirstSearch(e, input) {
-    let elementFor = []
-    e.ingredients.forEach(element => {
-        elementFor.push(element.ingredient.toLowerCase())
-    })
-    if (
-        e.name.toLowerCase().includes(input.value.toLowerCase())
-        ||
-        e.description.toLowerCase().includes(input.value.toLowerCase())
-        ||
-        elementFor.includes(input.value.toLowerCase())
-    ) {
-        return e
-    }
+export function firstWordSearch(recipe, input) {
+	let elementFor = []
+	recipe.ingredients.forEach((element) => {
+		elementFor.push(element.ingredient.toLowerCase())
+	})
+	if (
+		recipe.name.toLowerCase().includes(input.value.toLowerCase()) ||
+		recipe.description.toLowerCase().includes(input.value.toLowerCase()) ||
+		elementFor.includes(input.value.toLowerCase())
+	) {
+		return recipe
+	}
 }

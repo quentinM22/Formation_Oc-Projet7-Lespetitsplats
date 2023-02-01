@@ -1,34 +1,30 @@
-import { displayList, displayRecette, getErrorFind } from "../views/display.js";
-import { findFirstSearch } from "./firstSearch.js";
-import { tabListSearch } from "./tabListSearch.js";
+import { displayList, displayRecette, getErrorFind } from "../views/display.js"
+import { firstWordSearch } from "./firstSearch.js"
+import { tabListSearch } from "./tabListSearch.js"
 
 const searchWord = document.querySelector("#searchForm")
 
 /**
  * Fonction de recherche Principal
- * @param {data.array} tab 
+ * @param {data.array} recipes
  */
-export function search(tab) {
-    if (searchWord.value.length < 3) {
-        displayRecette(tab)
-        displayList(tab)
-    } else {
-        const findElementArr = tab.filter((e) =>
-            findFirstSearch(e, searchWord)
-        )
-        if (findElementArr.length === 0) {
-            const msg = "Aucune recette ne correspond à votre critère… "
-            getErrorFind(msg)
-
-        } else {
-            displayRecette(findElementArr)
-            displayList(findElementArr)
-            tabListSearch(findElementArr) 
-            // const tagContainer = document.querySelector('#tag-container')
-            // tagContainer.innerHTML = ""
-        }
-
-    }
-    
+export function search(recipes) {
+	const tagContainer = document.querySelector("#tag-container")
+	tagContainer.innerHTML = ""
+	if (searchWord.value.length < 3) {
+		displayRecette(recipes)
+		displayList(recipes)
+	} else {
+		const newRecipesArr = recipes.filter((recipe) =>
+			firstWordSearch(recipe, searchWord)
+		)
+		if (newRecipesArr.length === 0) {
+			const msg = "Aucune recette ne correspond à votre critère… "
+			getErrorFind(msg)
+		} else {
+			displayRecette(newRecipesArr)
+			displayList(newRecipesArr)
+			tabListSearch(newRecipesArr)
+		}
+	}
 }
-
