@@ -76,7 +76,7 @@ header img {
   cursor: pointer;
 }
 #secondSearch .secondSearch .list-container ul li:hover {
-  color: beige;
+  color: rgb(70, 70, 70);
 }
 #secondSearch .btn-dropdown {
   margin: 20px 10px 10px 0;
