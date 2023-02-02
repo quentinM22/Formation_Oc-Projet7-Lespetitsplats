@@ -175,11 +175,46 @@ header {
 }
 
 @media screen and (max-width: 767px) {
+	main {
+		padding: 0;
+	}
 	#secondSearch {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		position: relative;
+		width: 100%;
+		.secondSearch {
+			border-radius: 0;
+			margin: 20px 0 20px;
+			.input-btn {
+				width: 90%;
+			}
+			.list-container {
+				border-radius: 0;
+				ul {
+					display: flex;
+					flex-flow: row wrap;
+					justify-content: space-between;
+					li {
+						font-size: 18px;
+						padding: 10px 5px 10px;
+						color: white;
+						width: calc(25% - 20px);
+						list-style: none;
+						cursor: pointer;
+						&:hover {
+							color: beige;
+						}
+					}
+				}
+			}
+		}
+
+		.btn-dropdown {
+			margin-top: 10px;
+			border-radius: 0;
+		}
 	}
 }
