@@ -117,6 +117,28 @@ header img {
   background-color: #ed6454;
 }
 
+#tag-container ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+#tag-container ul li {
+  margin: 10px;
+  display: flex;
+  border-radius: 5px;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  max-width: 25%;
+}
+#tag-container ul li i {
+  padding-left: 10px;
+}
+#tag-container ul li i:hover {
+  cursor: pointer;
+  color: rgb(70, 70, 70);
+}
+
 @media screen and (min-width: 1440px) {
   body {
     width: 1440px;
@@ -176,22 +198,6 @@ header img {
   }
   #secondSearch .secondSearch .list-container {
     border-radius: 0;
-  }
-  #secondSearch .secondSearch .list-container ul {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-  #secondSearch .secondSearch .list-container ul li {
-    font-size: 18px;
-    padding: 10px 5px 10px;
-    color: white;
-    width: calc(25% - 20px);
-    list-style: none;
-    cursor: pointer;
-  }
-  #secondSearch .secondSearch .list-container ul li:hover {
-    color: beige;
   }
   #secondSearch .btn-dropdown {
     margin-top: 10px;

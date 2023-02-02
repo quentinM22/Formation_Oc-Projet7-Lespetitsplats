@@ -22,7 +22,7 @@ export function crudTag(recipes) {
 				newRecipesArr = recipes.filter((e) => filterElement(e, tagArr))
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
-				tagElement(tagArr)
+				tagElement(tagArr, recipes)
 			}
 		})
 	})
@@ -35,7 +35,7 @@ export function crudTag(recipes) {
 
 			if (indexOfTag !== -1) {
 				tagArr.splice(indexOfTag, 1)
-				tagElement(tagArr)
+				tagElement(tagArr, recipes)
 				newRecipesArr = recipes.filter((recipe) =>
 					filterElement(recipe, tagArr)
 				)

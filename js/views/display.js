@@ -68,6 +68,8 @@ function viewList(arr, el) {
 		})
 		el.appendChild(ul)
 	} else {
+		const msg = "Aucune recette ne correspond à votre critère… "
+		getErrorFind(msg)
 		el.innerHTML = "Aucun element trouvé"
 	}
 }
@@ -75,12 +77,14 @@ function viewList(arr, el) {
  * Affichage des tags
  * @param {arrayoftags} tab
  */
-function tagElement(tab) {
+function tagElement(tab, recipes) {
 	const tagContainer = document.querySelector("#tag-container")
 	tagContainer.innerHTML = ""
 	const ul = document.createElement("ul")
 	tab.forEach((e) => {
+		const color = determineColor(e, recipes, tab)
 		const li = document.createElement("li")
+		li.style.backgroundColor = color
 		const i = document.createElement("i")
 		li.innerText = e
 		ul.appendChild(li)
@@ -88,6 +92,28 @@ function tagElement(tab) {
 		li.appendChild(i)
 	})
 	tagContainer.appendChild(ul)
+}
+
+function determineColor(tag, recipes, tagArr) {
+	let color
+	let element
+	recipes.forEach((recipe) => {
+		let elementArrIng = recipe.ingredients.map((eArr) =>
+			eArr.ingredient.toLowerCase()
+		)
+		let elementArrUst = recipe.ustensils.map((eArr) => eArr.toLowerCase())
+		tagArr.forEach((e) => {
+			element = e
+		})
+		if (recipe.appliance.toLowerCase().includes(tag.toLowerCase())) {
+			color = "#68d9a4"
+		} else if (elementArrIng.includes(tag.toLowerCase())) {
+			color = "#3282f7"
+		} else if (elementArrUst.includes(tag.toLowerCase())) {
+			color = "#ed6454"
+		}
+	})
+	return color
 }
 
 export { displayRecette, getErrorFind, displayList, viewList, tagElement }
