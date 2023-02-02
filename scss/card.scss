@@ -1,12 +1,17 @@
 #content-card {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-around;
+	justify-content: space-between;
+	position: relative;
+	margin-top: 5rem;
 	.card {
 		width: calc(33.33% - 40px);
-		height: 364px;
-		margin: 20px;
-		padding-bottom: 40px;
+		margin: 20px 0 20px;
+		&:hover {
+			transform: scale(1.01);
+			box-shadow: 6px 6px 2px rgb(73, 73, 73);
+			border-radius: 5px;
+		}
 		a {
 			color: black;
 			.card_ {

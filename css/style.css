@@ -8,6 +8,10 @@
   font-size: 16px;
 }
 
+main {
+  padding: 0 100px 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -16,36 +20,54 @@ ul li {
   list-style: none;
 }
 
-.form-control:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-#secondSearch {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 header {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-header img {
-  width: 40%;
+  margin: 0 0 20px;
   padding-top: 1rem;
 }
-
-#ingSearch .list-container {
-  background-color: #3282f7;
+header img {
+  width: 30%;
 }
 
-.list-container ul {
+#secondSearch {
+  display: flex;
+  position: absolute;
+  z-index: 3;
+}
+#secondSearch .secondSearch {
+  width: 667px;
+  border-radius: 5px;
+  margin: 20px 5px 10px 0;
+}
+#secondSearch .secondSearch.hidden {
+  display: none;
+}
+#secondSearch .secondSearch .input-btn {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding: 20px;
+  align-items: center;
+}
+#secondSearch .secondSearch .input-btn input {
+  width: 90%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+#secondSearch .secondSearch .list-container {
+  border-radius: 5px;
+  width: 100%;
+}
+#secondSearch .secondSearch .list-container ul {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
-.list-container ul li {
+#secondSearch .secondSearch .list-container ul li {
   font-size: 18px;
   padding: 10px;
   color: white;
@@ -53,15 +75,45 @@ header img {
   list-style: none;
   cursor: pointer;
 }
-.list-container ul li:hover {
+#secondSearch .secondSearch .list-container ul li:hover {
   color: beige;
 }
-
-#appSearch .list-container {
+#secondSearch .btn-dropdown {
+  margin: 20px 10px 10px 0;
+  border-radius: 5px;
+  width: 170px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+#secondSearch .btn-dropdown.hidden {
+  display: none;
+}
+#secondSearch .btn-dropdown:hover {
+  cursor: pointer;
+}
+#secondSearch .btn-dropdown label {
+  font-weight: 700;
+  font-size: 18px;
+}
+#secondSearch .btn-dropdown i {
+  font-weight: 700;
+}
+#secondSearch #ingSearch .list-container,
+#secondSearch #ingSearch .btn-dropdown,
+#secondSearch #ingSearch .secondSearch {
+  background-color: #3282f7;
+}
+#secondSearch #appSearch .list-container,
+#secondSearch #appSearch .btn-dropdown,
+#secondSearch #appSearch .secondSearch {
   background-color: #68d9a4;
 }
-
-#ustSearch .list-container {
+#secondSearch #ustSearch .list-container,
+#secondSearch #ustSearch .btn-dropdown,
+#secondSearch #ustSearch .secondSearch {
   background-color: #ed6454;
 }
 
@@ -96,16 +148,37 @@ header img {
   border-bottom-right-radius: 5px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #secondSearch {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+}
+@media screen and (max-width: 767px) {
+  #secondSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+}
 #content-card {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 5rem;
 }
 #content-card .card {
   width: calc(33.33% - 40px);
-  height: 364px;
-  margin: 20px;
-  padding-bottom: 40px;
+  margin: 20px 0 20px;
+}
+#content-card .card:hover {
+  transform: scale(1.01);
+  box-shadow: 6px 6px 2px rgb(73, 73, 73);
+  border-radius: 5px;
 }
 #content-card .card a {
   color: black;

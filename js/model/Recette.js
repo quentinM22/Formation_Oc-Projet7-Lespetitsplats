@@ -15,7 +15,7 @@ export class Recette {
 			return (ingredientList += `
                 <li class="card__ingredients">
                     <span>${e.ingredient}</span>
-                    ${e.quantity ? ": " + e.quantity.toString() : ""}${
+                    ${e.quantity ? ": " + e.quantity.toString() : ""} ${
 				e.unit ? e.unit.toLowerCase() : ""
 			} 
                 </li>

@@ -8,6 +8,9 @@ $newRed: #ed6454;
 	font-weight: 400;
 	font-size: 16px;
 }
+main {
+	padding: 0 100px 0;
+}
 a {
 	text-decoration: none;
 }
@@ -16,102 +19,109 @@ ul {
 		list-style: none;
 	}
 }
-.form-control {
-	&:focus {
-		outline: none;
-		box-shadow: none;
-	}
-}
-#secondSearch {
-	display: flex;
-	flex-flow: row wrap;
-}
 header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 0 0 20px;
+	padding-top: 1rem;
 	img {
-		width: 40%;
-		padding-top: 1rem;
+		width: 30%;
 	}
 }
+#secondSearch {
+	display: flex;
+	position: absolute;
+	z-index: 3;
+	.secondSearch {
+		width: 667px;
+		border-radius: 5px;
+		margin: 20px 5px 10px 0;
 
-#ingSearch {
-	.list-container {
-		background-color: $newBlue;
-		// ul {
-		// 	display: flex;
-		// 	flex-flow: row wrap;
-		// 	justify-content: space-between;
-		// 	li {
-		// 		padding: 10px;
-		// 		color: white;
-		// 		width: calc(33.33% - 20px);
-		// 		list-style: none;
-		// 		cursor: pointer;
-		// 		&:hover {
-		// 			color: beige;
-		// 		}
-		// 	}
-		// }
-	}
-}
-.list-container {
-	ul {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-evenly;
-		li {
-			font-size: 18px;
-			padding: 10px;
+		&.hidden {
+			display: none;
+		}
+		.input-btn {
+			display: flex;
+			justify-content: space-between;
 			color: white;
-			width: calc(33.33% - 20px);
-			list-style: none;
-			cursor: pointer;
-			&:hover {
-				color: beige;
+			padding: 20px;
+			align-items: center;
+			input {
+				width: 90%;
+				background-color: transparent;
+				border: none;
+				color: white;
+				outline: none;
+			}
+		}
+
+		.list-container {
+			border-radius: 5px;
+			width: 100%;
+			ul {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-between;
+				li {
+					font-size: 18px;
+					padding: 10px;
+					color: white;
+					width: calc(33.33% - 20px);
+					list-style: none;
+					cursor: pointer;
+					&:hover {
+						color: beige;
+					}
+				}
 			}
 		}
 	}
-}
-#appSearch {
-	.list-container {
-		background-color: $newGreen;
-		// ul {
-		// 	display: flex;
-		// 	flex-flow: row wrap;
-		// 	justify-content: space-between;
-		// 	li {
-		// 		padding: 10px;
-		// 		color: white;
-		// 		width: calc(33.33% - 20px);
-		// 		list-style: none;
-		// 		cursor: pointer;
-		// 		&:hover {
-		// 			color: beige;
-		// 		}
-		// 	}
-		// }
+
+	.btn-dropdown {
+		&.hidden {
+			display: none;
+		}
+		margin: 20px 10px 10px 0;
+		border-radius: 5px;
+		width: 170px;
+		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: white;
+		&:hover {
+			cursor: pointer;
+		}
+		label {
+			font-weight: 700;
+			font-size: 18px;
+		}
+		i {
+			font-weight: 700;
+		}
 	}
-}
-#ustSearch {
-	.list-container {
-		background-color: $newRed;
-		// ul {
-		// 	display: flex;
-		// 	flex-flow: row wrap;
-		// 	justify-content: space-between;
-		// 	li {
-		// 		padding: 10px;
-		// 		color: white;
-		// 		width: calc(33.33% - 20px);
-		// 		list-style: none;
-		// 		cursor: pointer;
-		// 		&:hover {
-		// 			color: beige;
-		// 		}
-		// 	}
-		// }
+	#ingSearch {
+		.list-container,
+		.btn-dropdown,
+		.secondSearch {
+			background-color: $newBlue;
+		}
+	}
+
+	#appSearch {
+		.list-container,
+		.btn-dropdown,
+		.secondSearch {
+			background-color: $newGreen;
+		}
+	}
+	#ustSearch {
+		.list-container,
+		.btn-dropdown,
+		.secondSearch {
+			background-color: $newRed;
+		}
 	}
 }
 @media screen and (min-width: 1440px) {
@@ -124,6 +134,7 @@ header {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
+
 	#searchForm {
 		width: 100%;
 		height: 69px;
@@ -133,6 +144,14 @@ header {
 		border-bottom-left-radius: 5px;
 		outline: none;
 		padding-left: 20px;
+		// border-top: transparent 1px solid;
+		// border-left: transparent 1px solid;
+		// border-bottom: transparent 1px solid;
+		// &:focus {
+		// 	border-top: #3282f7 1px solid;
+		// 	border-left: #3282f7 1px solid;
+		// 	border-bottom: #3282f7 1px solid;
+		// }
 	}
 	i {
 		display: flex;
@@ -142,5 +161,25 @@ header {
 		padding-right: 10px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+		// border-top: #3282f7 1px solid;
+		// border-right: #3282f7 1px solid;
+		// border-bottom: #3282f7 1px solid;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	#secondSearch {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#secondSearch {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
 	}
 }
