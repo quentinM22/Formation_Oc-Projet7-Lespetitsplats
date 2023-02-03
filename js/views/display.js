@@ -23,6 +23,7 @@ function displayRecette(tab) {
 function getErrorFind(message) {
 	section.innerHTML = ""
 	const notFind = document.createElement("h2")
+	notFind.className = "getError"
 	notFind.textContent = message
 	section.appendChild(notFind)
 }

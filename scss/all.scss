@@ -32,9 +32,11 @@ header {
 #secondSearch {
 	display: flex;
 	position: absolute;
+	max-width: calc(83.33% - 20px);
+	overflow: hidden;
 	z-index: 3;
 	.secondSearch {
-		width: 667px;
+		width: calc(100% - 10px);
 		border-radius: 5px;
 		margin: 20px 5px 10px 0;
 
@@ -46,9 +48,10 @@ header {
 			justify-content: space-between;
 			color: white;
 			padding: 20px;
+
 			align-items: center;
 			input {
-				width: 90%;
+				width: 100%;
 				background-color: transparent;
 				border: none;
 				color: white;
@@ -63,11 +66,13 @@ header {
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: space-between;
+				// width: calc(33.33% - 20px);
+				// padding: 10px;
 				li {
 					font-size: 18px;
 					padding: 10px;
 					color: white;
-					width: calc(33.33% - 20px);
+					min-width: calc(33.33% - 20px);
 					list-style: none;
 					cursor: pointer;
 					&:hover {
@@ -147,12 +152,22 @@ header {
 		}
 	}
 }
-@media screen and (min-width: 1440px) {
-	body {
-		width: 1440px;
-		margin: auto;
-	}
+.getError {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem;
+	width: 100%;
+	color: #ed6454;
+	font-size: 32px;
+	font-weight: 700;
 }
+// @media screen and (min-width: 1440px) {
+// 	body {
+// 		width: 1440px;
+// 		margin: auto;
+// 	}
+// }
 .input-group {
 	display: flex;
 	flex-direction: row;
@@ -167,14 +182,6 @@ header {
 		border-bottom-left-radius: 5px;
 		outline: none;
 		padding-left: 20px;
-		// border-top: transparent 1px solid;
-		// border-left: transparent 1px solid;
-		// border-bottom: transparent 1px solid;
-		// &:focus {
-		// 	border-top: #3282f7 1px solid;
-		// 	border-left: #3282f7 1px solid;
-		// 	border-bottom: #3282f7 1px solid;
-		// }
 	}
 	i {
 		display: flex;
@@ -184,9 +191,6 @@ header {
 		padding-right: 10px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
-		// border-top: #3282f7 1px solid;
-		// border-right: #3282f7 1px solid;
-		// border-bottom: #3282f7 1px solid;
 	}
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -207,10 +211,12 @@ header {
 		align-items: center;
 		flex-direction: column;
 		position: relative;
+		max-width: 100%;
 		width: 100%;
 		.secondSearch {
+			width: 100%;
 			border-radius: 0;
-			margin: 20px 0 20px;
+			margin: 0;
 			.input-btn {
 				width: 90%;
 			}
@@ -220,7 +226,8 @@ header {
 		}
 
 		.btn-dropdown {
-			margin-top: 10px;
+			width: 100%;
+			margin: 0;
 			border-radius: 0;
 		}
 	}
