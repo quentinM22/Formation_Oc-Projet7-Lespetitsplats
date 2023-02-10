@@ -21,9 +21,9 @@ export function tabListSearch(recipes) {
 	const inputAppSearch = app.inputElement("#inputAppSearch")
 	const inputUstSearch = ust.inputElement("#inputUstSearch")
 
-	tabList(inputIngSearch, arr[0], ingContainer, recipes)
-	tabList(inputAppSearch, arr[1], appContainer, recipes)
-	tabList(inputUstSearch, arr[2], ustContainer, recipes)
+	tabList(inputIngSearch, arr[0], ingContainer, recipes, "ingredient")
+	tabList(inputAppSearch, arr[1], appContainer, recipes, "appliance")
+	tabList(inputUstSearch, arr[2], ustContainer, recipes, "ustensil")
 }
 
 /**
@@ -33,12 +33,12 @@ export function tabListSearch(recipes) {
  * @param {containerDom} container
  * @param {array.recipes} recipes
  */
-function tabList(input, elements, container, recipes) {
+function tabList(input, elements, container, recipes, keyClass) {
 	input.addEventListener("keyup", () => {
 		const newElementsArr = elements.filter((e) =>
 			e.toLowerCase().includes(input.value.toLowerCase())
 		)
-		viewList(newElementsArr, container)
+		viewList(newElementsArr, container, keyClass)
 		//
 		crudTag(recipes)
 	})

@@ -7,7 +7,6 @@ import {
 } from "../views/display.js"
 
 let newRecipesArr = []
-
 let tagArr = []
 
 /**
@@ -19,6 +18,13 @@ export function crudTag(recipes) {
 	const listcontainer = document.querySelectorAll(".list-items")
 	listcontainer.forEach((e) => {
 		e.addEventListener("click", (e) => {
+			// Cleaner Input
+			const inputSearch = document.querySelector(
+				"#inputIngSearch",
+				"#inputAppSearch",
+				"#inputUstSearch"
+			)
+			inputSearch.value = ""
 			if (e.target.id != "") {
 				let tag
 				let tagKey
@@ -44,10 +50,12 @@ export function crudTag(recipes) {
 					tagDisplay: tag,
 					key: tagKey,
 				})
+
 				// Tri doublon tableau => Objet en fonction de la Key
 				tagArr = [
 					...new Map(tagArr.map((item) => [item["key"], item])).values(),
 				]
+				console.log(tagArr)
 				//Filtre Recette en fonction des tagArr.name
 				newRecipesArr = recipes.filter((e) => filterElement(e, tagArr))
 				// Actualisation Listes

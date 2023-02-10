@@ -84,7 +84,6 @@ function tagElement(tab) {
 	tagContainer.innerHTML = ""
 	const ul = document.createElement("ul")
 	tab.forEach((e) => {
-		console.log(e.tagDisplay)
 		ul.appendChild(e.tagDisplay)
 	})
 	tagContainer.appendChild(ul)
