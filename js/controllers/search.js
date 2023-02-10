@@ -2,7 +2,7 @@ import { displayList, displayRecette, getErrorFind } from "../views/display.js"
 import { tabListSearch } from "./tabListSearch.js"
 
 const searchWord = document.querySelector("#searchForm")
-
+let newRecipesArr = []
 /**
  * Fonction de recherche Principal
  * @param {data.array} recipes
@@ -14,9 +14,10 @@ export function search(recipes) {
 		displayRecette(recipes)
 		displayList(recipes)
 	} else {
-		const newRecipesArr = recipes.filter((recipe) =>
+		recipes.forEach((recipe) => {
 			firstWordSearch(recipe, searchWord)
-		)
+		})
+		newRecipesArr = [...new Set(newRecipesArr)]
 		if (newRecipesArr.length === 0) {
 			const msg = "Aucune recette ne correspond à votre critère… "
 			getErrorFind(msg)
@@ -43,6 +44,6 @@ function firstWordSearch(recipe, input) {
 		recipe.description.toLowerCase().includes(input.value.toLowerCase()) ||
 		elementFor.includes(input.value.toLowerCase())
 	) {
-		return recipe
+		newRecipesArr.push(recipe)
 	}
 }

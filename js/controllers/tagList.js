@@ -56,7 +56,6 @@ export function crudTag(recipes) {
 				tagArr = [
 					...new Map(tagArr.map((item) => [item["key"], item])).values(),
 				]
-				console.log(tagArr)
 				//Filtre Recette en fonction des tagArr.name
 				newRecipesArr = recipes.filter((e) => filterElement(e, tagArr))
 				// Actualisation
