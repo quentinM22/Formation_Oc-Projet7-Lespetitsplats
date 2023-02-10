@@ -44,9 +44,9 @@ function displayList(recipes) {
 
 	const array = arrsElements(recipes)
 
-	viewList(array[0], ingContainer)
-	viewList(array[1], appContainer)
-	viewList(array[2], ustContainer)
+	viewList(array[0], ingContainer, "ingredient")
+	viewList(array[1], appContainer, "appliance")
+	viewList(array[2], ustContainer, "ustensil")
 	crudTag(recipes)
 }
 /**
@@ -54,16 +54,17 @@ function displayList(recipes) {
  * @param {array.elements} arr
  * @param {domElement} el
  */
-function viewList(arr, el) {
+function viewList(arr, el, classTarget) {
 	el.innerHTML = ""
 	if (arr.length > 0) {
-		const itemsToShow = arr.slice(0, 30) //Afficher 0 à 30 element
+		// const itemsToShow = arr.slice(0, 30) //Afficher 0 à 30 element
 		const ul = document.createElement("ul")
 		ul.className = "list-items"
-		// arr.forEach((e) => {
-		itemsToShow.forEach((e) => {
+		arr.forEach((e) => {
+			// itemsToShow.forEach((e) => {
 			const li = document.createElement("li")
 			li.innerText = e
+			li.className = classTarget
 			li.id = e.replaceAll(" ", "_")
 			ul.appendChild(li)
 		})
@@ -78,43 +79,15 @@ function viewList(arr, el) {
  * Affichage des tags
  * @param {arrayoftags} tab
  */
-function tagElement(tab, recipes) {
+function tagElement(tab) {
 	const tagContainer = document.querySelector("#tag-container")
 	tagContainer.innerHTML = ""
 	const ul = document.createElement("ul")
 	tab.forEach((e) => {
-		const color = determineColor(e, recipes, tab)
-		const li = document.createElement("li")
-		li.style.backgroundColor = color
-		const i = document.createElement("i")
-		li.innerText = e
-		ul.appendChild(li)
-		i.className = "fa-regular fa-circle-xmark"
-		li.appendChild(i)
+		console.log(e.tagDisplay)
+		ul.appendChild(e.tagDisplay)
 	})
 	tagContainer.appendChild(ul)
-}
-
-function determineColor(tag, recipes, tagArr) {
-	let color
-	let element
-	recipes.forEach((recipe) => {
-		let elementArrIng = recipe.ingredients.map((eArr) =>
-			eArr.ingredient.toLowerCase()
-		)
-		let elementArrUst = recipe.ustensils.map((eArr) => eArr.toLowerCase())
-		tagArr.forEach((e) => {
-			element = e
-		})
-		if (recipe.appliance.toLowerCase().includes(tag.toLowerCase())) {
-			color = "#68d9a4"
-		} else if (elementArrIng.includes(tag.toLowerCase())) {
-			color = "#3282f7"
-		} else if (elementArrUst.includes(tag.toLowerCase())) {
-			color = "#ed6454"
-		}
-	})
-	return color
 }
 
 export { displayRecette, getErrorFind, displayList, viewList, tagElement }

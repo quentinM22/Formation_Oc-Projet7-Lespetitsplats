@@ -1,3 +1,4 @@
+import { RecipeElement } from "../model/RecipeElement.js"
 import {
 	displayList,
 	displayRecette,
@@ -6,7 +7,9 @@ import {
 } from "../views/display.js"
 
 let newRecipesArr = []
+
 let tagArr = []
+
 /**
  * Ajouter et supprimer tag
  * @param {array.recipes} recipes
@@ -17,12 +20,40 @@ export function crudTag(recipes) {
 	listcontainer.forEach((e) => {
 		e.addEventListener("click", (e) => {
 			if (e.target.id != "") {
-				tagArr.push(e.target.id.replaceAll("_", " "))
-				tagArr = [...new Set(tagArr)]
+				let tag
+				let tagKey
+				if (e.target.classList.contains("ingredient")) {
+					tag = new RecipeElement(e.target.id.replaceAll("_", " ")).elTemplate(
+						"ing"
+					)
+					tagKey = `${e.target.id}ing`
+				} else if (e.target.classList.contains("appliance")) {
+					tag = new RecipeElement(e.target.id.replaceAll("_", " ")).elTemplate(
+						"app"
+					)
+					tagKey = `${e.target.id}app`
+				} else if (e.target.classList.contains("ustensil")) {
+					tag = new RecipeElement(e.target.id.replaceAll("_", " ")).elTemplate(
+						"ust"
+					)
+					tagKey = `${e.target.id}ust`
+				}
+				// Push Objet dans tableau
+				tagArr.push({
+					name: e.target.id.replaceAll("_", " "),
+					tagDisplay: tag,
+					key: tagKey,
+				})
+				// Tri doublon tableau => Objet en fonction de la Key
+				tagArr = [
+					...new Map(tagArr.map((item) => [item["key"], item])).values(),
+				]
+				//Filtre Recette en fonction des tagArr.name
 				newRecipesArr = recipes.filter((e) => filterElement(e, tagArr))
+				// Actualisation Listes
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
-				tagElement(tagArr, recipes)
+				tagElement(tagArr)
 			}
 		})
 	})
@@ -30,9 +61,12 @@ export function crudTag(recipes) {
 	const tagContainer = document.querySelector("#tag-container")
 	tagContainer.addEventListener("click", (e) => {
 		if (e.target.classList.contains("fa-circle-xmark")) {
-			const textTag = e.target.parentNode.textContent
-			const indexOfTag = tagArr.findIndex((tag) => tag === textTag)
-
+			// Récuperation de l'element à supprimer
+			const textTag = e.target.parentNode.textContent.replaceAll(" ", "_")
+			const tagToRemove = textTag + e.target.parentNode.classList
+			//Récuperation index de l'élement
+			const indexOfTag = tagArr.findIndex((tag) => tag.key === tagToRemove)
+			//Suppréssion de l'éléments dans le tableau via sont index
 			if (indexOfTag !== -1) {
 				tagArr.splice(indexOfTag, 1)
 				tagElement(tagArr, recipes)
@@ -41,6 +75,7 @@ export function crudTag(recipes) {
 				)
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
+				//Suppression de l'élément target dans le Dom
 				e.target.parentNode.remove()
 			}
 		}
@@ -65,9 +100,9 @@ function filterElement(recipe, tagArr) {
 	if (
 		tagArr.every(
 			(tag) =>
-				recipe.appliance.toLowerCase().includes(tag.toLowerCase()) ||
-				elementArrIng.includes(tag.toLowerCase()) ||
-				elementArrUst.includes(tag.toLowerCase())
+				recipe.appliance.toLowerCase().includes(tag.name.toLowerCase()) ||
+				elementArrIng.includes(tag.name.toLowerCase()) ||
+				elementArrUst.includes(tag.name.toLowerCase())
 		)
 	) {
 		return recipe
