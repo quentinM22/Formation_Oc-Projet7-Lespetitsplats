@@ -59,7 +59,7 @@ export function crudTag(recipes) {
 				console.log(tagArr)
 				//Filtre Recette en fonction des tagArr.name
 				newRecipesArr = recipes.filter((e) => filterElement(e, tagArr))
-				// Actualisation Listes
+				// Actualisation
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
 				tagElement(tagArr)
@@ -82,11 +82,12 @@ export function crudTag(recipes) {
 				newRecipesArr = recipes.filter((recipe) =>
 					filterElement(recipe, tagArr)
 				)
+				//Croisement Search Word et Tag
 				search(newRecipesArr)
+				//Actualisation
 				tagElement(tagArr)
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
-
 				//Suppression de l'élément target dans le Dom
 				e.target.parentNode.remove()
 			}
