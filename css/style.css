@@ -65,6 +65,10 @@ header img {
   width: 100%;
 }
 #secondSearch .secondSearch .list-container ul {
+  height: 150pt;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

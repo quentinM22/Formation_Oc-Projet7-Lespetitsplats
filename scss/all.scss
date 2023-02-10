@@ -62,12 +62,15 @@ header {
 		.list-container {
 			border-radius: 5px;
 			width: 100%;
+
 			ul {
+				height: 150pt;
+				overflow-y: scroll;
+				scrollbar-width: thin;
+				scrollbar-color: white transparent;
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: space-between;
-				// width: calc(33.33% - 20px);
-				// padding: 10px;
 				li {
 					font-size: 18px;
 					padding: 10px;
