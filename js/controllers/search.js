@@ -1,3 +1,5 @@
+//algo Solution 2
+
 import { displayList, displayRecette, getErrorFind } from "../views/display.js"
 import { tabListSearch } from "./tabListSearch.js"
 
