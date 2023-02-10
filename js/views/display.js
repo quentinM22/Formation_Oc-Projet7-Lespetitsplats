@@ -69,10 +69,6 @@ function viewList(arr, el, classTarget) {
 			ul.appendChild(li)
 		})
 		el.appendChild(ul)
-	} else {
-		const msg = "Aucune recette ne correspond à votre critère… "
-		getErrorFind(msg)
-		el.innerHTML = "Aucun element trouvé"
 	}
 }
 /**

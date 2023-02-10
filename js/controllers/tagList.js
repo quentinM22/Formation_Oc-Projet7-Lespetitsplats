@@ -5,6 +5,7 @@ import {
 	getErrorFind,
 	tagElement,
 } from "../views/display.js"
+import { search } from "./search.js"
 
 let newRecipesArr = []
 let tagArr = []
@@ -83,6 +84,7 @@ export function crudTag(recipes) {
 				)
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
+				search(recipes)
 				//Suppression de l'élément target dans le Dom
 				e.target.parentNode.remove()
 			}
