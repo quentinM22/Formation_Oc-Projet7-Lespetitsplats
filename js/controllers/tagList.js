@@ -82,9 +82,11 @@ export function crudTag(recipes) {
 				newRecipesArr = recipes.filter((recipe) =>
 					filterElement(recipe, tagArr)
 				)
+				search(newRecipesArr)
+				tagElement(tagArr)
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
-				search(recipes)
+
 				//Suppression de l'élément target dans le Dom
 				e.target.parentNode.remove()
 			}
