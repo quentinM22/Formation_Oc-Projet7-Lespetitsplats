@@ -57,7 +57,11 @@ export function crudTag(recipes) {
 					...new Map(tagArr.map((item) => [item["key"], item])).values(),
 				]
 				//Filtre Recette en fonction des tagArr.name
-				newRecipesArr = recipes.filter((e) => filterElement(e, tagArr))
+				recipes.forEach((recipe) => {
+					filterElement(recipe, tagArr)
+				})
+				newRecipesArr = [...new Set(newRecipesArr)]
+				console.log(newRecipesArr)
 				// Actualisation
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
@@ -78,15 +82,16 @@ export function crudTag(recipes) {
 			if (indexOfTag !== -1) {
 				tagArr.splice(indexOfTag, 1)
 				tagElement(tagArr, recipes)
-				newRecipesArr = recipes.filter((recipe) =>
-					filterElement(recipe, tagArr)
-				)
-				//Croisement Search Word et Tag
-				search(newRecipesArr)
+				recipes.forEach((recipe) => filterElement(recipe, tagArr))
+				newRecipesArr = [...new Set(newRecipesArr)]
+
 				//Actualisation
-				tagElement(tagArr)
+
 				displayRecette(newRecipesArr)
 				displayList(newRecipesArr)
+				//Croisement Search Word et Tag
+				search(newRecipesArr)
+				tagElement(tagArr)
 				//Suppression de l'élément target dans le Dom
 				e.target.parentNode.remove()
 			}
@@ -117,7 +122,7 @@ function filterElement(recipe, tagArr) {
 				elementArrUst.includes(tag.name.toLowerCase())
 		)
 	) {
-		return recipe
+		newRecipesArr.push(recipe)
 	} else {
 		const msg = "Aucune recette ne correspond à votre critère… "
 		getErrorFind(msg)
