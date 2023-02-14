@@ -3,4 +3,4 @@
 
 https://quentinm22.github.io/Formation_Oc-Projet7-Lespetitsplats/
 
-benchmark: https://jsben.ch/9Y2vb 
+benchmark: https://jsben.ch/gBkb1
