@@ -1,3 +1,6 @@
+/**
+ * Ouverture / Fermeture Bouton Dropdown recherche
+ */
 export function toggleBtn() {
 	const ingSearchDropdown = document.querySelector("#ingSearch .btn-dropdown")
 	const ingSearchInput = document.querySelector("#ingSearch .secondSearch")

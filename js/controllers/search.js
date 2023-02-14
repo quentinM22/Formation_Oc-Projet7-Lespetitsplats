@@ -16,9 +16,11 @@ export function search(recipes) {
 		displayRecette(recipes)
 		displayList(recipes)
 	} else {
-		recipes.forEach((recipe) => {
+		//Solution 2
+		for (let i = 0; i < recipes.length; i++) {
+			const recipe = recipes[i]
 			firstWordSearch(recipe, searchWord)
-		})
+		}
 		newRecipesArr = [...new Set(newRecipesArr)]
 		if (newRecipesArr.length === 0) {
 			const msg = "Aucune recette ne correspond à votre critère… "

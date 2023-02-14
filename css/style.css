@@ -65,7 +65,7 @@ header img {
   width: 100%;
 }
 #secondSearch .secondSearch .list-container ul {
-  height: 150pt;
+  max-height: 150pt;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: white transparent;
@@ -207,8 +207,7 @@ header img {
     align-items: center;
     flex-direction: column;
     position: relative;
-    max-width: 100%;
-    width: 100%;
+    min-width: 100%;
   }
   #secondSearch .secondSearch {
     width: 100%;
@@ -222,7 +221,7 @@ header img {
     border-radius: 0;
   }
   #secondSearch .btn-dropdown {
-    width: 100%;
+    min-width: 100%;
     margin: 0;
     border-radius: 0;
   }
