@@ -65,7 +65,7 @@ header img {
   width: 100%;
 }
 #secondSearch .secondSearch .list-container ul {
-  height: 150pt;
+  max-height: 150pt;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: white transparent;
@@ -199,15 +199,13 @@ header img {
 }
 @media screen and (max-width: 767px) {
   main {
-    padding: 0;
+    padding: 10px;
   }
   #secondSearch {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     position: relative;
-    max-width: 100%;
+    min-width: 100%;
     width: 100%;
   }
   #secondSearch .secondSearch {
@@ -222,9 +220,13 @@ header img {
     border-radius: 0;
   }
   #secondSearch .btn-dropdown {
-    width: 100%;
+    width: 95%;
     margin: 0;
     border-radius: 0;
+    padding: 20px 20px 20px 20px;
+  }
+  #secondSearch .btn-dropdowni {
+    margin-right: 10px;
   }
 }
 #content-card {

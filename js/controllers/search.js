@@ -14,6 +14,7 @@ export function search(recipes) {
 		displayRecette(recipes)
 		displayList(recipes)
 	} else {
+		//Solution N°1
 		const newRecipesArr = recipes.filter((recipe) =>
 			firstWordSearch(recipe, searchWord)
 		)

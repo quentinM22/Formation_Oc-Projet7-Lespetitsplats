@@ -64,7 +64,7 @@ header {
 			width: 100%;
 
 			ul {
-				height: 150pt;
+				max-height: 150pt;
 				overflow-y: scroll;
 				scrollbar-width: thin;
 				scrollbar-color: white transparent;
@@ -215,15 +215,13 @@ header {
 
 @media screen and (max-width: 767px) {
 	main {
-		padding: 0;
+		padding: 10px;
 	}
 	#secondSearch {
 		display: flex;
-		justify-content: center;
-		align-items: center;
 		flex-direction: column;
 		position: relative;
-		max-width: 100%;
+		min-width: 100%;
 		width: 100%;
 		.secondSearch {
 			width: 100%;
@@ -236,11 +234,14 @@ header {
 				border-radius: 0;
 			}
 		}
-
 		.btn-dropdown {
-			width: 100%;
+			width: 95%;
 			margin: 0;
 			border-radius: 0;
+			padding: 20px 20px 20px 20px;
+			&i {
+				margin-right: 10px;
+			}
 		}
 	}
 }
