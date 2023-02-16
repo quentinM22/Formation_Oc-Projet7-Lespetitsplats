@@ -5,9 +5,6 @@ import { tabListSearch } from "./controllers/tabListSearch.js"
 import { crudTag } from "./controllers/tagList.js"
 import { toggleBtn } from "./controllers/btn.js"
 
-// console.log(arrsElements(recipes));
-console.log(recipes)
-
 //SearchWord
 const searchWord = document.querySelector("#searchForm")
 searchWord.addEventListener("keyup", () => {
